@@ -11,7 +11,13 @@ const userRouter = require("./routes/userRoutes");
 const rideRouter = require("./routes/rideRoutes");
 
 const app = express();
-app.use(cors());
+app.use(cors(
+    {
+        origin: ["https://deploy-mern-frontend.vercel.app"],
+        methods: ["POST", "GET","PUT","DELETE"],
+        credentials: true
+    }
+));
 
 //*** MIDDLEWARES FROM EXPRESS ***//
 if (process.env.NODE_ENV === "development") {
