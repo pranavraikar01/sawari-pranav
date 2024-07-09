@@ -13,7 +13,7 @@ const rideRouter = require("./routes/rideRoutes");
 const app = express();
 app.use(
   cors({
-    origin: ["https://sawari-pranav-api.vercel.app"],
+    origin: ["http://localhost:5173"],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
