@@ -5,10 +5,26 @@ import styles from "./Map.module.css";
 import Button from "./Button";
 function Map({ geoLocationPosition }) {
   const [mapPosition, setmapPosition] = useState([19.076, 72.8777]);
-
+  //   const {
+  //     isLoading: isLoadingPosition,
+  //     position: geoLocationPosition,
+  //     getPosition,
+  //   } = useGeolocation();
+  //   useEffect(
+  //     function () {
+  //       if (geoLocationPosition)
+  //         setmapPosition([geoLocationPosition.lat, geoLocationPosition.lng]);
+  //     },
+  //     [geoLocationPosition]
+  //   );
   setmapPosition(geoLocationPosition);
   return (
     <div className={styles.mapContainer}>
+      {/* {!geoLocationPosition && (
+        <Button type="position" onClick={getPosition}>
+          {isLoadingPosition ? "Loading..." : "Use your position"}
+        </Button>
+      )} */}
       <MapContainer
         center={mapPosition}
         zoom={13}

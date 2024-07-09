@@ -1,4 +1,30 @@
+// import React from "react";
+// import styles from "./MyRequestedRideCard.module.css";
 
+// function MyRequestedRideCard({ ride, userId }) {
+//   const user = userId;
+//   console.log("Hellfhhhhhhhhhhhhhhhhhhhhhhhhhhhhxxxx", userId);
+//   const currentUserStatus = ride.rideRequests.find(
+//     (request) => request.userDetails._id === user
+//   )?.currentStatus;
+
+//   return (
+//     <div className={styles.card}>
+//       <h2>Ride Details</h2>
+//       <h3>Requested Ride Details</h3>
+//       <h2 className={styles.title}>
+//         {ride.exactEndLocation} to {ride.exactEndLocation}
+//       </h2>
+//       <p>Route Description: {ride.routeDescription}</p>
+//       <p>Passengers: {ride.passengers}</p>
+//       <p>Date: {ride.date}</p>
+//       <p></p>
+//       <p>Current Status: {currentUserStatus}</p>
+//     </div>
+//   );
+// }
+
+// export default MyRequestedRideCard;
 
 import React, { useState, useEffect } from "react";
 import styles from "./MyRequestedRideCard.module.css";

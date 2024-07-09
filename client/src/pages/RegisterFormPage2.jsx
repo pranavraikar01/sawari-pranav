@@ -94,6 +94,35 @@ function RegisterForm() {
         )}
         {selectedOption === "Passenger" && (
           <>
+            {/* <div className={styles.row}>
+              <label htmlFor="email">Email address</label>
+              <input
+                type="email"
+                id="email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+              />
+            </div>
+
+            <div className={styles.row}>
+              <label htmlFor="address "> Address</label>
+              <input
+                type="text"
+                id="address"
+                onChange={(e) => setAddress(e.target.value)}
+                value={address}
+              />
+            </div>
+            <div className={styles.row}>
+              <label htmlFor="gender">Gender</label>
+              <input
+                type="text"
+                id="gender"
+                onChange={(e) => setGender(e.target.value)}
+                value={gender}
+              />
+            </div> */}
+
             <div className={styles.row}>
               <label htmlFor="photo">Photo</label>
               <input

@@ -1,3 +1,139 @@
+// // import React, { useState } from "react";
+// // import styles from "./PublishRide.module.css";
+// // import { GeoapifyGeocoderAutocomplete } from "@geoapify/react-geocoder-autocomplete";
+// // import "@geoapify/geocoder-autocomplete/styles/minimal.css";
+
+// // function PublishRide() {
+// //   const [startLocation, setStartLocation] = useState("");
+
+// //   const handlePlaceSelect = (place) => {
+// //     console.log("Selected place:", place);
+// //     setStartLocation(place.properties.formatted);
+// //   };
+
+// //   return (
+// //     <div className={styles.transparentFormContainer}>
+// //       <form className={styles.form}>
+// //         <div>
+// //           <GeoapifyGeocoderAutocomplete
+// //             apiKey="3aaff2060bbe4f93a401592c7d914d2e"
+// //             onPlaceSelect={handlePlaceSelect}
+// //           />
+// //         </div>
+// //         <input
+// //           type="text"
+// //           placeholder="Start Location"
+// //           value={startLocation}
+// //           onChange={(e) => setStartLocation(e.target.value)}
+// //         />
+// //       </form>
+// //     </div>
+// //   );
+// // }
+
+// // export default PublishRide;
+
+// import { useState } from "react";
+// import styles from "./PublishRide.module.css";
+// import {
+//   GeoapifyContext,
+//   GeoapifyGeocoderAutocomplete,
+// } from "@geoapify/react-geocoder-autocomplete";
+// import "@geoapify/geocoder-autocomplete/styles/minimal.css";
+// function PublishRide({ onSubmit }) {
+//   const [startLocation, setStartLocation] = useState("");
+//   const [destination, setDestination] = useState("");
+//   const [date, setDate] = useState("");
+//   const [passengers, setPassengers] = useState("");
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     const myRide = {
+//       startLocation,
+//       destination,
+//       date,
+//       passengers,
+//     };
+//     onSubmit(myRide);
+//   };
+//   console.log(startLocation);
+//   return (
+//     <div
+//       //   className={styles.mainStyle}
+//       //   style={{
+//       //     backgroundColor: "rgba(255, 255, 255, 0.5)", // Transparent white background
+//       //     padding: "20px",
+//       //     borderRadius: "10px",
+//       //     display: "flex",
+//       //     flexDirection: "column", // Align children vertically
+//       //     gap: "10px", // Add spacing between inputs
+//       //   }}
+//       className={styles.transparentFormContainer}
+//     >
+//       <form className={styles.form} onSubmit={handleSubmit}>
+//         {/* <input>
+//           <GeoapifyContext apiKey="3aaff2060bbe4f93a401592c7d914d2e">
+//             <GeoapifyGeocoderAutocomplete
+//               onChange={(e) => setStartLocation(e.target.value)}
+//               onUserInput={(e) => setStartLocation(e.target.value)}
+//               onPlaceSelect={(value) => {
+//                 // setStartLocation(selectedPlace.properties.formatted);
+//                 console.log(value);
+//               }}
+//               placeSelect={(value) => {
+//                 console.log(value);
+//               }}
+//               // suggestionsChange={onSuggectionChange}
+//             />
+//           </GeoapifyContext>
+//         </input> */}
+//         {/* <GeoapifyContext apiKey="3aaff2060bbe4f93a401592c7d914d2e">
+//           <div>
+//             <GeoapifyGeocoderAutocomplete
+//               onPlaceSelect={(value) => {
+//                 // Handle selected place here
+//                 console.log(value);
+//               }}
+//               onChange={(e) => setStartLocation(e.target.value)}
+//             />
+//           </div>
+//         </GeoapifyContext> */}
+//         <input
+//           type="text"
+//           placeholder="Start Location"
+//           value={startLocation}
+//           onChange={(e) => setStartLocation(e.target.value)}
+//         />
+//         <input
+//           type="text"
+//           placeholder="Destination"
+//           value={destination}
+//           onChange={(e) => setDestination(e.target.value)}
+//         />
+//         <input
+//           type="date"
+//           placeholder="Date"
+//           className={styles.date}
+//           value={date}
+//           onChange={(e) => setDate(e.target.value)}
+//         />
+//         <input
+//           type="number"
+//           placeholder="Passengers"
+//           value={passengers}
+//           onChange={(e) => setPassengers(e.target.value)}
+//         />
+//         <button type="submit">Search</button>
+//       </form>
+//       <img
+//         src="/carpoolOpenDoor.png"
+//         alt="Background"
+//         className={styles.backgroundCar}
+//       />
+//     </div>
+//   );
+// }
+// export default PublishRide;
 import React, { useState } from "react";
 import styles from "./PublishRide.module.css";
 import axios from "axios";
@@ -21,7 +157,7 @@ function PublishRide({ onSubmit }) {
       .get(
         `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
           exactStartLocation
-        )}.json?access_token="Your api token from mapbox api"`
+        )}.json?access_token=pk.eyJ1IjoiZ2F1cmFuZzEyIiwiYSI6ImNsbmNzbHdqazBxZXcycW9heTI3ZDFubGwifQ.lL6YUAY2SYEfNNM10pIntQ`
       )
       .then((startResponse) => {
         const startCoordinates =
@@ -34,7 +170,7 @@ function PublishRide({ onSubmit }) {
           .get(
             `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
               exactEndLocation
-            )}.json?access_token="Your api token from mapbox api"`
+            )}.json?access_token=pk.eyJ1IjoiZ2F1cmFuZzEyIiwiYSI6ImNsbmNzbHdqazBxZXcycW9heTI3ZDFubGwifQ.lL6YUAY2SYEfNNM10pIntQ`
           )
           .then((endResponse) => {
             const endCoordinates =

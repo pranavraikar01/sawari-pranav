@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
 import { NavLink } from "react-router-dom";
 
-
 export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -13,16 +12,19 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/api/v1/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      });
+      const response = await fetch(
+        "https://sawari-pranav-api.vercel.app/api/v1/users/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+        }
+      );
       console.log("Server response:", response);
       const data = await response.json();
 
@@ -43,7 +45,7 @@ export default function Login() {
   return (
     <main className={styles.login}>
       <form className={styles.form} onSubmit={handleSubmit}>
-      <h1 style={{ color: 'white' }}>Login</h1>
+        <h1 style={{ color: "white" }}>Login</h1>
         <div className={styles.row}>
           <label htmlFor="email">Email address</label>
           <input
@@ -65,12 +67,14 @@ export default function Login() {
         <div>
           <button type="submit">Login</button>
         </div>
-        <p style={{Ncolor: 'white'}}>New user? Register here</p>
-        <NavLink to="/register" style={{textDecoration: 'underline', color: 'white'  }}>
-          Register 
+        <p style={{ Ncolor: "white" }}>New user? Register here</p>
+        <NavLink
+          to="/register"
+          style={{ textDecoration: "underline", color: "white" }}
+        >
+          Register
         </NavLink>
       </form>
-      
     </main>
   );
 }

@@ -1,3 +1,32 @@
+// import React from "react";
+// import RideCard from "../components/RideCard";
+
+// function MyRequestedRides() {
+//   const dummyRequestedRides = [
+//     {
+//       startLocation: "Thane",
+//       destination: "Pune",
+//       routeDescription: "xyz",
+//       passengers: "3",
+//       date: "2023-10-12",
+//       approvalStatus: "Pending", // Add approval status for requested rides
+//     },
+//     // Add more dummy requested rides as needed
+//   ];
+
+//   return (
+//     <div>
+//       <h2>My Requested Rides</h2>
+//       <div>
+//         {dummyRequestedRides.map((ride, index) => (
+//           <RideCard key={index} ride={ride} context="myRequested" />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default MyRequestedRides;
 import PageNav from "../components/PageNav";
 import React, { useState, useEffect } from "react";
 import MyRequestedRideCard from "../components/MyRequestedRideCard";
@@ -44,19 +73,18 @@ function MyRequestedRides() {
     fetchRequestedRides();
   }, []);
 
-  return (
-    <>
-      <PageNav />
-      <div>
-        <h2 style={{ textAlign: "center", padding: "90px 0px 10px 0px" }}>
-          My Requested Rides
-        </h2>{" "}
-        <div>
-          {requestedRides.map((ride, index) => (
-            <MyRequestedRideCard key={index} ride={ride} userId={userId} />
-          ))}
-        </div>
+  return (<>
+  
+  <PageNav/>
+    <div>
+<h2 style={{textAlign: 'center',
+            padding: '90px 0px 10px 0px'
+    }}>My Requested Rides</h2>      <div>
+        {requestedRides.map((ride, index) => (
+          <MyRequestedRideCard key={index} ride={ride} userId={userId} />
+        ))}
       </div>
+    </div>
     </>
   );
 }
